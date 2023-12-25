@@ -4,8 +4,6 @@ import { isUser } from '../Logics/ChatLogic';
 import { IoSend } from 'react-icons/io5';
 import axios from 'axios'
 
-const ENDPOINT = "http://localhost:3001"
-
 const ChatBox = () => {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
@@ -30,7 +28,7 @@ const ChatBox = () => {
       max_tokens: 1000,
     };
 
-    const proxyUrl = "http://localhost:3001/api/chat/completions";
+    const proxyUrl = "https://bnx-backend.onrender.com/api/chat/completions";
 
     try {
       const response = await axios.post(proxyUrl, data);
