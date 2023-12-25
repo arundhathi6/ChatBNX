@@ -99,7 +99,7 @@ const ChatBox = () => {
         p={4}
         bg="yellow"
         h="75vh"
-        overflowY="scroll"
+        overflowY="hidden"
         css={{
           "&::-webkit-scrollbar": {},
           "&::-webkit-scrollbar-thumb": {},
