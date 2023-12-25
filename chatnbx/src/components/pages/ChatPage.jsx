@@ -5,7 +5,37 @@ import { IoSend } from 'react-icons/io5';
 import axios from 'axios'
 
 const ChatBox = () => {
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState([{
+    name: "You",
+    timestamp: new Date().toLocaleString(),
+    content: 'how are you',
+  },   {
+    name: "Yu",
+    timestamp: new Date().toLocaleString(),
+    content: 'how are you',
+  },   {
+    name: "Yo",
+    timestamp: new Date().toLocaleString(),
+    content: 'how are you',
+  },   {
+    name: "You",
+    timestamp: new Date().toLocaleString(),
+    content: 'how are you',
+  },   {
+    name: "Yo",
+    timestamp: new Date().toLocaleString(),
+    content: 'how are you',
+  },
+  {
+    name: "You",
+    timestamp: new Date().toLocaleString(),
+    content: 'how are you',
+  },{
+    name: "You",
+    timestamp: new Date().toLocaleString(),
+    content: 'how are you',
+  },
+]);
   const [newMessage, setNewMessage] = useState("");
   // const [typing, setTyping] = useState(false);
   // const [istyping, setIsTyping] = useState(false);
@@ -99,10 +129,10 @@ const ChatBox = () => {
         p={4}
         bg="yellow"
         h="75vh"
-        overflowY="hidden"
+        overflowY="scroll"
         css={{
-          "&::-webkit-scrollbar": {},
-          "&::-webkit-scrollbar-thumb": {},
+          "&::-webkit-scrollbar": { height: "3px",width:'2px'},
+          "&::-webkit-scrollbar-thumb": {backgroundColor: "transperent"},
         }}
       >
         <VStack align="stretch" spacing={4}>
