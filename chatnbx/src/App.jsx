@@ -1,12 +1,12 @@
 
 import './App.css';
-import Home from './components/Home';
+import SidebarChkra from './components/Sidebar';
 
 function App() {
   return (
-   <>
-   <Home/>
-   </>
+    <>
+      <SidebarChkra />
+    </>
   );
 }
 
