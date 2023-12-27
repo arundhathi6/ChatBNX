@@ -83,7 +83,7 @@ const WeatherApp = () => {
   };
 
   useEffect(() => {
-    // getWeatherData(weatherLocation);
+    getWeatherData(weatherLocation);
   }, []);
 
   return (
