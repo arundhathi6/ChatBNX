@@ -123,6 +123,19 @@ export const TaskUpdate = () => {
           />
         </FormControl>
 
+        <FormControl id="link" isRequired>
+          <FormLabel className="text-[#fa28a0]">Update Reminder</FormLabel>
+          <Input
+            name="date"
+            value={one?.date || ""}
+            onChange={(e) =>
+              setOne({ ...one, [e.target.name]: e.target.value })
+            }
+            placeholder="Select Date and Time"
+            type="datetime-local"
+          />
+        </FormControl>
+
         <Button
           width="100%"
           marginTop={15}

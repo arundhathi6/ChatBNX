@@ -12,7 +12,8 @@ import {
 
 export const Taskfields = ({ addTask }) => {
   const toast = useToast();
-  const [newTask, setNewTask] = useState({ title: "", notes: "", link: "" });
+  const [newTask, setNewTask] = useState({ title: "", notes: "", link: "", time: "" });
+ 
 
   const handleInputChange = (e) => {
     setNewTask({ ...newTask, [e.target.name]: e.target.value });
@@ -34,9 +35,9 @@ export const Taskfields = ({ addTask }) => {
       });
     }
 
-    setNewTask({ title: "", notes: "", link: "" });
+    setNewTask({ title: "", notes: "", link: "", date: "" });
   };
-
+  
   return (
     <VStack spacing={4}>
       <Box className="w-full mt-4">
@@ -80,6 +81,22 @@ export const Taskfields = ({ addTask }) => {
         />
       </Box>
 
+      <Box className="w-full">
+        <Text className="text-[#fa28a0] items-start font-semibold text-sm ml-3">
+          Add a task reminder?
+        </Text>
+        <Input
+          placeholder="Select Date and Time"
+          size="md"
+          type="datetime-local"
+          style={{ backgroundColor: "white" }}
+          lineHeight="2"
+          name="date"
+          value={newTask.date}
+          onChange={handleInputChange}
+        />
+      </Box>
+
       <Button
         marginTop={5}
         backgroundColor={"#f97da2"}
@@ -114,6 +131,7 @@ export const Task = ({ task }) => {
       <Link href={task.link} target="_blank">
         {task.link}
       </Link>
+      <Text>{task.date}</Text>
       {/* Due date and reminder display here */}
     </Box>
   );

@@ -55,10 +55,36 @@ const TaskTable = () => {
   const filteredTasks = tasks.filter((item) =>
     item.title.toLowerCase().includes(filterText.toLowerCase())
   );
+  console.log('filteredTasks:', filteredTasks)
 
   useEffect(() => {
     fetchData();
   }, [handleDeleteUser]);
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const day = date.getDate();
+    const month = date.getMonth() + 1; 
+    const year = date.getFullYear();
+
+    // Ensure two-digit format for day and month
+    const formattedDay = day < 10 ? `0${day}` : day;
+    const formattedMonth = month < 10 ? `0${month}` : month;
+
+    // Format the date as "dd-mm-yyyy"
+    const formattedDate = `${formattedDay}-${formattedMonth}-${year}`;
+    return formattedDate;
+  };
+
+  const formatTime = (dateTimeString) => {
+    const formattedTime = new Date(dateTimeString).toLocaleTimeString('en-US', {
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: true,
+    });
+
+    return formattedTime;
+  };
 
   return (
     <div>
@@ -77,7 +103,8 @@ const TaskTable = () => {
             <Tr>
               <Th>ID</Th>
               <Th>Title</Th>
-              <Th>Reminder</Th>
+              <Th>Reminder Date</Th>
+              <Th>Reminder Time</Th>
               <Th>Update</Th>
               <Th>Delete</Th>
             </Tr>
@@ -88,7 +115,8 @@ const TaskTable = () => {
                 <Tr key={idx}>
                   <Td>{idx + 1}</Td>
                   <Td>{item?.title || "-"}</Td>
-                  <Td>reminder</Td>
+                  <Td>{formatDate(item?.date)|| "-"}</Td>
+                  <Td>{formatTime(item?.date)|| "-"}</Td>
                   <Td>
                     <Button
                       onClick={() => handleUpdate(item)}
