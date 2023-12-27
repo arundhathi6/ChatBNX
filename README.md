@@ -6,9 +6,14 @@ This chatbots  application or platform enables users to seamlessly exchange mess
 <h1>ChatBot :-</h1>
 <img src="https://github.com/arundhathi6/ChatBNX/blob/main/chatnbx/src/Images/chatApp.png" />
 <h1>Weather:-</h1>
-<img src="https://github.com/arundhathi6/Chit-Chat/blob/main/images/login.png"/>
+<img src="https://github.com/arundhathi6/ChatBNX/blob/main/chatnbx/src/Images/weatherApp.png"/>
 <h1>News:-</h1>
-<img src="https://github.com/arundhathi6/Chit-Chat/blob/main/images/chat-page.png"/>
+<img src="https://github.com/arundhathi6/ChatBNX/blob/main/chatnbx/src/Images/newsapp.png"/>
+<h1>Task Manger:-</h1>
+<img src="https://github.com/arundhathi6/ChatBNX/blob/main/chatnbx/src/Images/taskApp.png"/>
+<img src="https://github.com/arundhathi6/ChatBNX/blob/main/chatnbx/src/Images/filter_taskapp.png"/>
+<img src="https://github.com/arundhathi6/ChatBNX/blob/main/chatnbx/src/Images/update_task.png"/>
+<img src="https://github.com/arundhathi6/ChatBNX/blob/main/chatnbx/src/Images/taskDelete.png"/>
 
 <h3>Deployment link : <a href="https://chat-bnx.vercel.app/">https://chat-bnx.vercel.app/</a></h3>
 <h3>It's a solo project❤️</h3>
