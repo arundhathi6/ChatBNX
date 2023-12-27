@@ -12,6 +12,7 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 import { FiSearch } from "react-icons/fi";
+import PageNotFound from "./pages/PageNotFound";
 
 const WeatherApp = () => {
   const [loading, setLoading] = useState(false);
@@ -88,33 +89,36 @@ const WeatherApp = () => {
 
   return (
     <>
+      <Box align="center" justify="center">
+        <Flex maxWidth="400px">
+          <Input
+            style={{ backgroundColor: "white", border: "1px solid black" }}
+            placeholder="Enter city name"
+            variant="filled"
+            value={weatherLocation}
+            onChange={(e) => setWeatherLocation(e.target.value)}
+            onKeyPress={(e) => handleEnter(e)}
+            flex="1"
+            mr={2}
+          />
+          <Button
+            color="white"
+            backgroundColor="#fa5397"
+            px={8}
+            _hover={{
+              bg: "#f491b0",
+              color: "#5c0830",
+            }}
+            onClick={handleWeatherCall}
+          >
+            <Icon as={FiSearch} />
+          </Button>
+        </Flex>
+      </Box>
+
       {!loading && sevenDayaWeather.length ? (
         <Box className="p-6 justify-center items-center m-auto ">
           <Box align="center" justify="center">
-            <Flex maxWidth="400px">
-              <Input
-                style={{ backgroundColor: "white", border: "1px solid black" }}
-                placeholder="Enter city name"
-                variant="filled"
-                value={weatherLocation}
-                onChange={(e) => setWeatherLocation(e.target.value)}
-                onKeyPress={(e) => handleEnter(e)}
-                flex="1"
-                mr={2}
-              />
-              <Button
-                color="white"
-                backgroundColor="#fa5397"
-                px={8}
-                _hover={{
-                  bg: "#f491b0",
-                  color: "#5c0830",
-                }}
-                onClick={handleWeatherCall}
-              >
-                <Icon as={FiSearch} />
-              </Button>
-            </Flex>
             <Box
               p={8}
               borderWidth={1}
@@ -248,7 +252,9 @@ const WeatherApp = () => {
             </Box>
           </Box>
         </Box>
-      ) : null}
+      ) : (
+        <PageNotFound />
+      )}
     </>
   );
 };
