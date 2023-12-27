@@ -6,7 +6,7 @@ This chatbots  application or platform enables users to seamlessly exchange mess
 <h1>ChatBot :-</h1>
 <img src="https://github.com/arundhathi6/ChatBNX/blob/main/chatnbx/src/Images/chatApp.png" />
 <h1>Weather:-</h1>
-<img src="https://github.com/arundhathi6/ChatBNX/blob/main/chatnbx/src/Images/weatherApp.png"/>
+<img src="https://github.com/arundhathi6/ChatBNX/blob/main/chatnbx/src/Images/weatherUI.png"/>
 <h1>News:-</h1>
 <img src="https://github.com/arundhathi6/ChatBNX/blob/main/chatnbx/src/Images/newsapp.png"/>
 <h1>Task Manger:-</h1>
