@@ -47,6 +47,12 @@ const NewsApp = () => {
     getNewsData(query);
   };
 
+  const handleEnter = (e) => {
+    if (e.key == "Enter") {
+      handleSearch()
+    }
+  };
+
   useEffect(() => {
     handleSearch();
   }, []);
@@ -71,7 +77,7 @@ const NewsApp = () => {
               variant="filled"
               value={query}
               onChange={handleInputChange}
-              onKeyPress={() => handleSearch()}
+              onKeyPress={(e) => handleEnter(e)}
               flex="1"
               mr={2}
             />

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { VStack, Input, Button, Box, Text, Flex } from '@chakra-ui/react';
+import { VStack, Input, Button, Box, Text, Flex, CircularProgress } from '@chakra-ui/react';
 import { isUser } from './Logics/ChatLogic';
 import { IoSend } from 'react-icons/io5';
 import axios from 'axios';
@@ -8,8 +8,20 @@ const ChatApp = () => {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
   const messageRef = useRef(null);
+  const [loading,setLoading]=useState(false)
 
   const getMessage = async (msg) => {
+    const newMessages = [
+      ...messages,
+      {
+        name: 'You',
+        timestamp: new Date().toLocaleString(),
+        content: newMessage,
+      }
+    ];
+    setMessages(newMessages);
+    setNewMessage('');
+    setLoading(true)
     let str = msg;
     let data = {
       temperature: 0.5,
@@ -57,15 +69,16 @@ const ChatApp = () => {
         contentString = contentString.replace('<|im_end|', '');
       }
       // console.log("contentString", contentString);
+      setLoading(false)
       return contentString;
     } catch (error) {
+      setLoading(false)
       console.error('errr', error);
     }
   };
 
   const handleSendMessage = async () => {
     if (newMessage.trim() === '') return;
-
     let chatResponse = await getMessage(newMessage);
     const newMessages = [
       ...messages,
@@ -82,6 +95,12 @@ const ChatApp = () => {
     ];
     setMessages(newMessages);
     setNewMessage('');
+  };
+
+  const handleEnter = (e) => {
+    if (e.key == "Enter") {
+      handleSendMessage()
+    }
   };
 
   useEffect(() => {
@@ -143,11 +162,19 @@ const ChatApp = () => {
                     {message.timestamp}
                   </Text>
                 </Box>
+                
                 <div ref={messageRef} />
               </Flex>
             ))}
           </Box>
         </VStack>
+        {loading?<Flex>
+          <Text className='text-[#e2358d] font-semibold'>Please wait, processing your request...</Text>
+          <Box className="flex items-center justify-center">
+         <CircularProgress size='20px' isIndeterminate color="#f24291" />
+       </Box>
+          </Flex>
+         :null}
       </Box>
       <Flex mt="2">
         <Input
@@ -155,6 +182,7 @@ const ChatApp = () => {
           placeholder="Type your message..."
           value={newMessage}
           onChange={(e) => setNewMessage(e.target.value)}
+          onKeyPress={(e) => handleEnter(e)}
           bg="white"
           mt={1}
         />
