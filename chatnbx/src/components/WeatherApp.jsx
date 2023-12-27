@@ -60,7 +60,7 @@ const WeatherApp = () => {
         humidity: `${dayData.main.humidity}%`,
         pressure: `${dayData.main.pressure}mb`,
         windSpeed: `${dayData.wind.speed}km/h`,
-        imgURL: `https://openweathermap.org/img/wn/${dayData.weather[0].icon}@4x.png`,
+        imgURL: `https://openweathermap.org/img/wn/${dayData.weather[0].icon}.png`,
       };
       setWeatherInfo(weatherObj);
       setSevenDaysWeather(SevenDaysData.daily);
@@ -88,9 +88,9 @@ const WeatherApp = () => {
   }, []);
 
   return (
-    <>
-      <Box align="center" justify="center">
-        <Flex maxWidth="400px">
+    <Box>
+      <Box align="center" justify="center" >
+        <Flex  className="md:w-[70%] sm:w-auto lg:w-[38%]">
           <Input
             style={{ backgroundColor: "white", border: "1px solid black" }}
             placeholder="Enter city name"
@@ -124,12 +124,12 @@ const WeatherApp = () => {
               borderWidth={1}
               borderRadius={8}
               boxShadow="lg"
-              backgroundColor="#f290bc"
+              backgroundColor="#ffebf7"
               color={"white"}
-              className="mt-6 md:w-[70%] sm:w-auto lg:w-[60%]"
+              className="md:w-[70%] sm:w-auto lg:w-[40%]"
             >
               <Stack spacing={4}>
-                <Box className="justify-between md:flex-row sm:flex-row lg:flex">
+                <Box className="justify-between md:flex-row sm:flex-row lg:flex-row">
                   <Box className="w-auto">
                     <Box
                       borderRadius={8}
@@ -137,7 +137,7 @@ const WeatherApp = () => {
                       p={4}
                       backgroundColor={"#02a4d3"}
                       gap={20}
-                      className="md:flex-row  max-[768px]:w-60 lg:w-80 sm:flex-col-reverse md:mb-2"
+                      className="md:flex-row max-[768px]:flex-1 sm:flex-col-reverse md:mb-2"
                     >
                       <Box>
                         <Heading
@@ -157,26 +157,19 @@ const WeatherApp = () => {
                             lineHeight="2"
                           >{`${weatherInfo.tempMin}~${weatherInfo.tempMax}`}</Text>
                         </Flex>
+                        <Flex gap={2}>
                         <Heading
-                          fontSize="5xl"
+                          fontSize="4xl"
                           fontWeight={600}
                           textAlign="left"
                         >
                           {weatherInfo.temp}
                         </Heading>
-                      </Box>
-
-                      <Box>
                         <Image
-                          className=""
-                          backgroundColor={"#89cff0"}
-                          boxShadow="lg"
-                          rounded={20}
-                          boxSize="150px"
-                          objectFit="cover"
                           src={weatherInfo.imgURL}
                           alt="weatherImgICon"
                         />
+                        </Flex>
                       </Box>
                     </Box>
                   </Box>
@@ -219,7 +212,7 @@ const WeatherApp = () => {
                   borderRadius={8}
                   display="grid"
                   gap={2}
-                  className="mt-4 sm:grid-cols-4 sm:grid-rows-2 md:grid-cols-4 md:grid-rows-2 lg:grid-rows-1 lg:grid-cols-8"
+                  className="mt-4 sm:grid-cols-4 sm:grid-rows-2 md:grid-cols-4 md:grid-rows-2 lg:grid-rows-2 lg:grid-cols-4"
                 >
                   {sevenDayaWeather?.map((el, i) => {
                     let days = new Date(el.dt * 1000).toLocaleDateString(
@@ -255,7 +248,7 @@ const WeatherApp = () => {
       ) : (
         <PageNotFound />
       )}
-    </>
+    </Box>
   );
 };
 
