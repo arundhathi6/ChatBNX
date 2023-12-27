@@ -17,7 +17,6 @@ This chatbots  application or platform enables users to seamlessly exchange mess
 
 <h3>Deployment link : <a href="https://chat-bnx.vercel.app/">https://chat-bnx.vercel.app/</a></h3>
 <h3>It's a solo project❤️</h3>
-  <a href="https://github.com/arundhathi6">Arundhathi R Menon</a><br>
     
    <h3>Features:</h3>
       <ul>
