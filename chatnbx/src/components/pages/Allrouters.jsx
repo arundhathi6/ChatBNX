@@ -14,7 +14,7 @@ const Allrouters = () => {
                 <Route path="/weather" element={<WeatherApp />} />
                 <Route path="/news" element={<NewsApp />} />
                 <Route path="/task-manager" element={<TaskManagerApp />} />
-                <Route path="/task-manager/update" element={<TaskUpdate />} />
+                <Route path="/task-manager/update/:id" element={<TaskUpdate />} />
             </Routes>
         </div>
     )

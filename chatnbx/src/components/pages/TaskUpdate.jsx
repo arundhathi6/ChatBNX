@@ -12,100 +12,62 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 export const TaskUpdate = () => {
+  const navigate = useNavigate();
   const { id } = useParams();
-  const [user, setUsers] = useState([]);
-  const [name, setName] = useState("");
-  const [dob, setDob] = useState("");
-  const [email, setEmail] = useState("");
-  const [role, setRole] = useState();
+  const [one, setOne] = useState({});
+  const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(false);
   const toast = useToast();
-//   let authData = JSON.parse(localStorage.getItem("userInfo"));
-  const navigate = useNavigate();
-//   let authToken = authData.token;
-//   const userData = {
-//     username: user.username,
-//     email: user.email,
-//     role: user.role,
-//     dob: user.dob,
-//   };
-//   const submitHandler = async () => {
-//     setLoading(true);
-//     if (!name || !email || !dob) {
-//       toast({
-//         title: "Invalid Credentials",
-//         status: "warning",
-//         duration: 5000,
-//         isClosable: true,
-//         position: "top",
-//       });
-//       setLoading(false);
-//       return;
-//     }
 
-//     try {
-//       const config = {
-//         headers: {
-//           "Content-type": "application/json",
-//           Authorization: `Bearer ${authToken}`,
-//         },
-//       };
+  const fetchData = () => {
+    const storedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    const OneTask =
+      storedTasks.length && storedTasks.filter((el) => el?.id == id);
+    setOne(OneTask[0]);
+    setTasks(storedTasks);
+  };
 
-//       const { data } = await axios.patch(
-//         `https://prickly-hare-lingerie.cyclic.app/admin/users/${id}`,
-//         {
-//           username: name,
-//           email: email,
-//           dob: dob,
-//         },
-//         config
-//       );
-//       toast({
-//         title: "successfully updated",
-//         status: "success",
-//         duration: 5000,
-//         isClosable: true,
-//         position: "top",
-//       });
-//       setLoading(false);
-//       navigate("/home");
-//       return;
-//     } catch (error) {
-//       toast({
-//         title: error.message,
-//         status: "warning",
-//         duration: 5000,
-//         isClosable: true,
-//         position: "top",
-//       });
-//       setLoading(false);
-//       return;
-//     }
-//   };
-//   const fetchOneUser = () => {
-//     const headers = {
-//       "Content-Type": "application/json",
-//       Authorization: `Bearer ${authToken}`,
-//     };
+  const submitHandler = async () => {
+    try {
+      setLoading(true);
+      if (!one.title) {
+        toast({
+          title: "Please add task title",
+          status: "warning",
+          duration: 5000,
+          isClosable: true,
+          position: "top",
+        });
+        setLoading(false);
+        return;
+      }
+      const updatedData = tasks.map((task) =>
+        task?.id == id ? { ...task, ...one } : task
+      );
+      localStorage.setItem("tasks", JSON.stringify(updatedData));
+      toast({
+        title: "Updated successfully",
+        status: "success",
+        duration: 5000,
+        isClosable: true,
+        position: "top",
+      });
+      setLoading(false);
+      navigate('/task-manager')
+    } catch (err) {
+      toast({
+        title: "Error occured while updating!!",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+        position: "top",
+      });
+    }
+  };
 
-//     let usersData = axios
-//       .get(`https://prickly-hare-lingerie.cyclic.app/admin/users/${id}`, { headers })
-//       .then((response) => {
-//         let res = response.data;
-//         setName(res.username);
-//         setDob(res.dob);
-//         setEmail(res.email);
-//         setRole(res.role);
-//       })
-//       .catch((error) => {
-//         console.error("Error:", error);
-//       });
-//   };
-//   useEffect(() => {
-//     {
-//       id && fetchOneUser();
-//     }
-//   }, []);
+  useEffect(() => {
+    id ? fetchData() : navigate("/task-manager");
+  }, []);
 
   return (
     <Box className="md:w-[60%] justify-center items-center m-auto mt-[2%]">
@@ -119,58 +81,59 @@ export const TaskUpdate = () => {
             onClick={() => {
               navigate("/task-manager");
             }}
-            color={'white'}
-            backgroundColor={'#fe71b5'}
+            color={"white"}
+            backgroundColor={"#fe71b5"}
           >
             Go Back
           </Button>
         </Box>
-        <FormControl id="Username" isRequired>
-          <FormLabel className="text-[#fa28a0]">Name</FormLabel>
+        <FormControl id="title" isRequired>
+          <FormLabel className="text-[#fa28a0]">Title</FormLabel>
           <Input
-            placeholder="Enter your Name"
-            // value={name}
-            // onChange={(e) => setName(e.target.value)}
+            name="title"
+            placeholder="Add title"
+            value={one?.title || ""}
+            onChange={(e) =>
+              setOne({ ...one, [e.target.name]: e.target.value })
+            }
           />
         </FormControl>
 
-        <FormControl id="Role" isRequired>
-          <FormLabel className="text-[#fa28a0]">Role</FormLabel>
-          <Input placeholder="Enter your Email"
-        //    value={role}
-            />
-        </FormControl>
-
-        <FormControl id="DOB" isRequired>
-          <FormLabel className="text-[#fa28a0]">DOB</FormLabel>
+        <FormControl id="notes" isRequired>
+          <FormLabel className="text-[#fa28a0]">Description</FormLabel>
           <Input
-            type="date"
-            placeholder="Enter your Name"
-            // value={dob}
-            // onChange={(e) => setDob(e.target.value)}
+            placeholder="Add description"
+            name="notes"
+            value={one?.notes || ""}
+            onChange={(e) =>
+              setOne({ ...one, [e.target.name]: e.target.value })
+            }
           />
         </FormControl>
 
-        <FormControl id="Email" isRequired>
-          <FormLabel className="text-[#fa28a0]">Email</FormLabel>
+        <FormControl id="link" isRequired>
+          <FormLabel className="text-[#fa28a0]">Link</FormLabel>
           <Input
-            placeholder="Enter your Email"
-            // value={email}
-            // onChange={(e) => setEmail(e.target.value)}
+            name="link"
+            placeholder="Add link"
+            value={one?.link || ""}
+            onChange={(e) =>
+              setOne({ ...one, [e.target.name]: e.target.value })
+            }
           />
         </FormControl>
 
         <Button
           width="100%"
           marginTop={15}
-        //   onClick={submitHandler}
+          onClick={submitHandler}
           isLoading={loading}
           backgroundColor={"#f97da2"}
-        color={"white"}
-        _hover={{
-          bg: "#b5d7fd",
-          color: "#5c0830",
-        }}
+          color={"white"}
+          _hover={{
+            bg: "#b5d7fd",
+            color: "#5c0830",
+          }}
         >
           Update User
         </Button>
