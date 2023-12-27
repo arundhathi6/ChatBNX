@@ -35,9 +35,7 @@ This chatbots  application or platform enables users to seamlessly exchange mess
   </ul>
   <h4>I developed this chatbot application as a part of company's interview process, showcasing my skills and expertise in building interactive and user-friendly applications. This experience provided me with a valuable opportunity to learn and enhance my skills, contributing to my continuous growth and excellence in the field. This is the short overview of my project and check out my project by downloading the files for more understanding.</h4>
   <h1>Steps to run the application(Backend & Frontend):</h1>
-    <ul>
-   <li>npm i</li>
-   <li>npm start</li>
-  </ul>
+   <h3>npm i</h3>
+   <h3>npm start</h3>
   <h4>Thank you 🙌</h4>
 
