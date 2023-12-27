@@ -34,7 +34,7 @@ export default function Sidebar() {
                 cursor="pointer"
                 color={"#bf2661"}
                 _hover={{
-                    bg: ("#fe0094"),
+                    bg: ("#f97da2"),
                     color: ("white"),
                 }}
                 role="group"
@@ -57,22 +57,27 @@ export default function Sidebar() {
             </Flex>
         );
     };
+    
     const handleChat = () => {
         navigate("/")
         sidebar.onClose()
     }
+
     const handleWeather = () => {
         navigate("/weather")
         sidebar.onClose()
     }
+
     const handleNews = () => {
         navigate("/news")
         sidebar.onClose()
     }
+
     const handleTask = () => {
         navigate("/task-manager")
         sidebar.onClose()
     }
+    
     const SidebarContent = (props) => (
         <Box
             as="nav"
@@ -103,10 +108,11 @@ export default function Sidebar() {
                 <NavItem onClick={handleChat} icon={RiRobot2Fill}>Chat App</NavItem>
                 <NavItem onClick={handleWeather} icon={FaCloudSunRain}>Weather App</NavItem>
                 <NavItem onClick={handleNews} icon={HiCollection}>News App</NavItem>
-                <NavItem onClick={handleTask} icon={FaClipboardCheck}>Task Manager</NavItem>
+                <NavItem onClick={handleTask} icon={FaClipboardCheck}>Task Manager App</NavItem>
             </Flex>
         </Box>
     );
+
     return (
         <Box
             as="section"
@@ -130,7 +136,7 @@ export default function Sidebar() {
                     justify="space-between"
                     w="full"
                     px="4"
-                    bg={"#ff69b4"}
+                    bg={"#f97da2"}
                     borderColor={("inherit", "gray.700")}
                     h="14"
                     className="no-scrollbar"

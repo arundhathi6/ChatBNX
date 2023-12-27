@@ -46,6 +46,7 @@ const handleDeleteUser = (taskdata) => {
 
 
     const handleUpdate = (item) => {
+        navigate('/task-manager/update')
         // navigate(`/home/${item._id}`);
 
     };
@@ -58,7 +59,7 @@ const handleDeleteUser = (taskdata) => {
     return (
         <div>
             <TableContainer>
-                <Table variant="striped" colorScheme="teal">
+                <Table variant="striped"  backgroundColor={'#f9d0e7'}>
                     <Thead>
                         <Tr>
                             <Th>ID</Th>
@@ -78,15 +79,17 @@ const handleDeleteUser = (taskdata) => {
                                         <Td>reminder</Td>
                                         <Td>
                                             <Button
-                                                //   onClick={() => handleUpdate(item)}
-                                                colorScheme="blue"
+                                                  onClick={() => handleUpdate(item)}
+                                                color={'white'}
+                                                backgroundColor={'#ff66bc'}
                                             >
                                                 Update
                                             </Button>
                                         </Td>
                                         <Td>
                                             <Button
-                                                colorScheme="red"
+                                            color={'white'}
+                                                backgroundColor={'#cb6ce6'}
                                                 onClick={() => handleDeleteUser(item)}
                                             >
                                                 Delete
@@ -114,7 +117,8 @@ const handleDeleteUser = (taskdata) => {
                                             Cancel
                                         </Button>
                                         <Button
-                                            colorScheme="red"
+                                            color={'white'}
+                                            backgroundColor={'#fa28a0'}
                                             onClick={() => handleDelete(deleteTaskId)}
                                         >
                                             OK

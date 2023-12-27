@@ -1,11 +1,11 @@
 
 import './App.css';
-import SidebarChkra from './components/Sidebar';
+import MenuBar from './components/Sidebar';
 
 function App() {
   return (
     <>
-      <SidebarChkra />
+      <MenuBar />
     </>
   );
 }

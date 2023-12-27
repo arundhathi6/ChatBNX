@@ -24,7 +24,7 @@ const TaskManager = () => {
 
   return (
     <Box
-      className="p-10  md:w-[50%] justify-center items-center m-auto bg-[#ffebf7]"
+      className="p-10 md:w-[50%] justify-center items-center m-auto bg-[#ffebf7]"
     >
       <Text className="text-[#ce40d2] text-3xl font-bold flex justify-center mb-5">
         What would you like to do?

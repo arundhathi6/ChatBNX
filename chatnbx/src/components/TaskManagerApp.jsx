@@ -1,5 +1,6 @@
 import React from 'react'
 import { Tabs, TabList, TabPanels, Tab, TabPanel, Box } from '@chakra-ui/react'
+import { MdOutlineAddTask } from "react-icons/md";
 import TaskManager from './TaskManager'
 import TaskTable from './pages/TaskTable'
 const TaskManagerApp = () => {
@@ -7,8 +8,8 @@ const TaskManagerApp = () => {
         <Box w="100%" m={2}>
             <Tabs isFitted variant='enclosed'>
                 <TabList mb='1em'>
-                    <Tab _selected={{ color: 'white', bg: 'blue.500' }}>One</Tab>
-                    <Tab _selected={{ color: 'white', bg: 'green.500' }}>Two</Tab>
+                    <Tab _selected={{ color: 'white', bg: '#f290bc' }}>Add your task&nbsp; <MdOutlineAddTask /></Tab>
+                    <Tab _selected={{ color: 'white', bg: '#f290bc' }}>View all tasks</Tab>
                 </TabList>
                 <TabPanels>
                     <TabPanel>

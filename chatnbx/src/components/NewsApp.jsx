@@ -10,24 +10,35 @@ const NewsApp = () => {
   const [query, setQuery] = useState("iqoo 12");
   const [newsData, setNewsData] = useState([]);
   const [category, setCategory] = useState("");
-  const NEWS_API_KEY = "3e401fd749f44fabae13a493b8f49711";
+  const NEWS_API_KEY = 'fedbde83a7b342578df3a660abe80c87';
 
   const getNewsData = async (query) => {
     setLoading(true);
     try {
       let response;
       if (category == "") {
-        response = await axios.get(
-          `https://newsapi.org/v2/everything?q=${query}&pageSize=10&apiKey=${NEWS_API_KEY}`
-        );
-      } else {
-        response = await axios.get(
-          `https://newsapi.org/v2/top-headlines?${category && `category=${category}&`
-          }${query && `q=${query}&`}&pageSize=10apiKey=${NEWS_API_KEY}`
+       response = await axios.get(
+          `https://api.bing.microsoft.com/v7.0/news/search?q=${query}&count=10`,
+          {
+            headers: {
+              'Ocp-Apim-Subscription-Key':NEWS_API_KEY,
+            },
+          }
         );
       }
+       else {
+        response = await axios.get(
+          `https://api.bing.microsoft.com/v7.0/news/search?q=${query}&count=10&category=${category}`,
+          {
+            headers: {
+              'Ocp-Apim-Subscription-Key':NEWS_API_KEY,
+            },
+          }
+        );
+      }
+    
       setLoading(false);
-      setNewsData(response.data.articles);
+      setNewsData(response.data.value);
     } catch (error) {
       setLoading(false);
       setNewsData([]);
@@ -96,7 +107,7 @@ const NewsApp = () => {
           </Flex>
         </Box>
         {newsData.length || loading ? <Box>
-          {!loading ? <Box className="flex flex-wrap w-full border-2 justify-center overflow-scroll h-[80vh] no-scrollbar">
+          {!loading ? <Box className="flex flex-wrap w-full justify-center overflow-scroll h-[80vh] no-scrollbar">
             {newsData.map((article, index) => (
               <NewsCard key={index} article={article} />
             ))}
