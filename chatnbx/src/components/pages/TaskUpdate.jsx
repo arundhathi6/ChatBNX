@@ -135,7 +135,7 @@ export const TaskUpdate = () => {
             color: "#5c0830",
           }}
         >
-          Update User
+          Update Task
         </Button>
       </VStack>
     </Box>
