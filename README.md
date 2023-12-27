@@ -4,7 +4,7 @@
 <h3>About project: 🙌</h3>
 This chatbots  application or platform enables users to seamlessly exchange messages and get information based on their queries.The interface not only offering a seamless ChatUI experience, but also can access detailed weather information, stay updated with the latest news, and efficiently manage their tasks—all within a single, user-friendly platform.
 <h1>ChatBot :-</h1>
-<img src="https://github.com/arundhathi6/Chit-Chat/blob/main/images/sign.png" />
+<img src="https://drive.google.com/file/d/1Nl9WKaUo_4F1vog1sEh5BAcux6QMY-3w/view?usp=sharing" />
 <h1>Weather:-</h1>
 <img src="https://github.com/arundhathi6/Chit-Chat/blob/main/images/login.png"/>
 <h1>News:-</h1>
