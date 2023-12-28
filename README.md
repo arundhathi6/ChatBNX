@@ -19,9 +19,9 @@ This chatbots  application or platform enables users to seamlessly exchange mess
     
    <h3>Features:</h3>
       <ul>
-            <li> ChatBot : Users can initiate a chat with the bot, posing queries and receiving prompt responses for a seamless and interactive experience.</li>
-            <li> Weather App : Users can effortlessly obtain detailed weather information by providing location names, receiving immediate and informative responses</li>
-            <li> News App : Users can easily retrieve news information by submitting specific queries, obtaining the relevant news they desire in a straightforward and user-friendly manner</li>
+            <li> ChatBot : Users can initiate a chat with the bot, posing queries and receiving prompt responses for a seamless and interactive experience. I've used chatNBX API to get response.</li>
+            <li> Weather App : Users can effortlessly obtain detailed weather information by providing location names, receiving immediate and informative responses. I've used open weather map API to get weather data.</li>
+            <li> News App : Users can easily retrieve news information by submitting specific queries, obtaining the relevant news they desire in a straightforward and user-friendly manner, I've used microsoft bing API to fetch response</li>
             <li> Task Manager App : The platform allows seamless addition, viewing, updating, and deletion of tasks. Enhanced functionality includes filtering options, enabling users to effortlessly search and organize their tasks for a streamlined task management experience.</li>
       </ul>
    <h3>Tool kits used to build this project: 🛠</h3>
