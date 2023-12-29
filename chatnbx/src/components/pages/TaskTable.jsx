@@ -55,7 +55,7 @@ const TaskTable = () => {
   const filteredTasks = tasks.filter((item) =>
     item.title.toLowerCase().includes(filterText.toLowerCase())
   );
-  console.log('filteredTasks:', filteredTasks)
+  // console.log('filteredTasks:', filteredTasks)
 
   useEffect(() => {
     fetchData();

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { TaskList, Taskfields } from "./pages/Task";
+import { TaskList, Taskfields } from "./Task";
 import { Box, Text } from "@chakra-ui/react";
 
 const TaskManager = () => {

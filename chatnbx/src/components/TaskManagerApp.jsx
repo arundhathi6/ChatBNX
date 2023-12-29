@@ -1,7 +1,7 @@
 import React from 'react'
 import { Tabs, TabList, TabPanels, Tab, TabPanel, Box } from '@chakra-ui/react'
 import { MdOutlineAddTask } from "react-icons/md";
-import TaskManager from './TaskManager'
+import TaskManager from './pages/TaskManager'
 import TaskTable from './pages/TaskTable'
 const TaskManagerApp = () => {
     return (
