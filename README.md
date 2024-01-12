@@ -2,7 +2,7 @@
 
 
 <h3>About project: 🙌</h3>
-Four-in-One Hive application with our intuitive bot for instant assistance, Weather and News apps to stay updated with real-time weather and news, and Task Manager app to manage your tasks efficiently – all within a single, integrated platform.
+Four-in-One Hive application with intuitive bot for instant assistance, Weather and News apps to stay updated with real-time weather and news, and Task Manager app to manage your tasks efficiently – all within a single, integrated platform.
 <h1>ChatBot :-</h1>
 <img src="https://github.com/arundhathi6/ChatBNX/blob/main/chatnbx/src/Images/chatApp.png" />
 <h1>Weather:-</h1>
