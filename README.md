@@ -2,7 +2,7 @@
 
 
 <h3>About project: 🙌</h3>
-This chatbots  application or platform enables users to seamlessly exchange messages and get information based on their queries.The interface not only offering a seamless ChatUI experience, but also can access detailed weather information, stay updated with the latest news, and efficiently manage their tasks all within a single, user-friendly platform.
+Four-in-One Hive application with our intuitive bot for instant assistance, Weather and News apps to stay updated with real-time weather and news, and Task Manager app to manage your tasks efficiently – all within a single, integrated platform.
 <h1>ChatBot :-</h1>
 <img src="https://github.com/arundhathi6/ChatBNX/blob/main/chatnbx/src/Images/chatApp.png" />
 <h1>Weather:-</h1>
